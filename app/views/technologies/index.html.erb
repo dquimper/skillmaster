@@ -1,0 +1,26 @@
+<h1>Listing technologies</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @technologies.each do |technology| %>
+  <tr>
+    <td><%= technology.name %></td>
+    <td><%= link_to 'Show', technology %></td>
+    <td><%= link_to 'Edit', edit_technology_path(technology) %></td>
+    <td><%= link_to 'Destroy', technology, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nouvelle Technologie', new_technology_path %>
+<br>
+<br>
+<%= link_to 'Employee', employees_path %> | <%= link_to 'Connaissances', skilllevels_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  years_exp: 1
+  technology_id: 1
+  employee_id: 1
+
+two:
+  title: MyString
+  years_exp: 1
+  technology_id: 1
+  employee_id: 1

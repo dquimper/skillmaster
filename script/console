@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby.exe
+
+ARGV.delete("--irb=C:/Ruby192/bin/irb.bat")
+
+
+APP_PATH = File.expand_path('../../config/application',  __FILE__)
+require File.expand_path('../../config/boot',  __FILE__)
+#require 'rails/commands'
+require 'rails/commands/console'
+require APP_PATH
+Rails.application.require_environment!
+Rails::Console.start(Rails.application)

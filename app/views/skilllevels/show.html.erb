@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <% form_tag skilllevel_path, :method => :put do %>
+      <b>Name:</b>
+      <%= select_tag :employee_id, options_from_collection_for_select(@employees, :id, :name, @employee.id), :onchange => "document.location.href='#{skilllevels_url}/' + this.value;" %>
+      <br><br>
+      <table border="1">
+        <tr>
+          <td>Technologie</td>
+          <td>Titre</td>
+          <td>Annees d'experience</td>
+        </tr>
+        <% @technos.each do |tech| %>
+            <tr>
+              <% skill = @skills.detect {|s| s.technology_id == tech.id} %>
+              <td><%= tech.name %></td>
+              <td><%= select_tag "skilllevels[#{tech.id}][title]", options_for_select([["-- Selectionner --",""], "Expert", "Intermediere", "Novice"], skill ? skill.title : "") %></td>
+              <td><%= text_field_tag "skilllevels[#{tech.id}][years_exp]", skill ? skill.years_exp : "", {:maxlength => 2, :size => 3} %></td>
+            </tr>
+        <% end %>
+      </table>
+
+      <%= submit_tag "Sauvegarder" %>
+  <% end %>
+
+  </p>
+  <br>
+  <br>
+
+  <%= link_to 'Employee', employees_path %> |
+  <%= link_to 'Technologies', technologies_path %>
